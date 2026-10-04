@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from 'react'
+import { Children, isValidElement, useEffect, useState } from 'react'
 import {
   ArrowDown,
   ArrowUpRight,
@@ -18,7 +18,7 @@ import { restaurants } from './data/restaurants'
 import { buildSchedule } from './data/schedule'
 import { transport } from './data/transport'
 import { checkedAtLabel, guideLinks, siteUrl } from './data/links'
-import { architecture, closureNotices, introParagraphs, dayPlanning } from './data/editorial'
+import { architecture, introParagraphs, dayPlanning } from './data/editorial'
 import { costs, totals } from './data/costs'
 import type { DayType, Spot } from './data/types'
 import './App.css'
@@ -27,12 +27,21 @@ import './luxury.css'
 import './walking-course.css'
 import PhotoGallery from './components/PhotoGallery'
 import { privatePhotos } from './data/privateMedia'
-import OfficialMap from './components/OfficialMap'
-import WalkingCourse from './components/WalkingCourse'
 import PlaceMedia from './components/PlaceMedia'
 import OfficialTimetables from './components/OfficialTimetables'
 
-const GuideMap = lazy(() => import('./components/GuideMap'))
+import TravelControls, { TravelDatePicker } from './components/TravelControls'
+import NowTripPanel from './components/NowTripPanel'
+import OfflineNotice from './components/OfflineNotice'
+import MapTabs from './components/MapTabs'
+import {
+  closureWarning,
+  dayForDate,
+  japanToday,
+  noticesForDate,
+  validDate,
+} from './data/travelDate'
+import './travel.css'
 const allPlaces = [...spots, ...restaurants]
 const lunch = restaurants[0]
 const bath = spots.find((s) => s.id === 'yurari')!
@@ -105,8 +114,8 @@ function Actions({ spot, compact = false }: { spot: Spot; compact?: boolean }) {
         </a>
       )}
       {!compact && today && (
-        <External href={today} label={`${spot.name}の今日の営業を確認`} className="today">
-          今日の営業を確認
+        <External href={today} label={`${spot.name}の営業情報を確認`} className="today">
+          営業情報を確認
         </External>
       )}
       {!compact && links.facebook && (
@@ -181,29 +190,100 @@ function SectionHeading({
     </div>
   )
 }
-function App() {
-  const [day, setDay] = useState<DayType>(() =>
-    [0, 6].includes(new Date().getDay()) ? 'holiday' : 'weekday',
+function TravelMain({ mode, children }: { mode: 'plan' | 'local'; children: React.ReactNode }) {
+  const order = (child: React.ReactNode) => {
+    if (!isValidElement<{ id?: string; className?: string }>(child)) return 0
+    if (child.type === TravelControls) return -10
+    if (child.type === NowTripPanel) return -9
+    if (child.props.className?.includes('field-links')) return -8
+    return (
+      (
+        { map: -7, access: -6, check: -5, schedule: -4, food: -3, spots: -2 } as Record<
+          string,
+          number
+        >
+      )[child.props.id ?? ''] ?? 0
+    )
+  }
+  const sections = Children.toArray(children)
+  if (mode === 'local') sections.sort((a, b) => order(a) - order(b))
+  return (
+    <main id="main" className={mode === 'local' ? 'local-mode' : 'plan-mode'}>
+      {sections}
+    </main>
   )
-  const [mapReady, setMapReady] = useState(false)
+}
+function App() {
+  const [now, setNow] = useState(() => new Date())
+  const [mode, setMode] = useState<'plan' | 'local'>(() => {
+    try {
+      return localStorage.getItem('momen-travel-mode') === 'local' ? 'local' : 'plan'
+    } catch {
+      return 'plan'
+    }
+  })
+  function selectMode(value: 'plan' | 'local') {
+    setMode(value)
+    try {
+      localStorage.setItem('momen-travel-mode', value)
+    } catch {
+      /* state remains usable */
+    }
+  }
+  const [travelDate, setTravelDate] = useState(() => {
+    try {
+      const value = localStorage.getItem('momen-travel-date') ?? ''
+      return validDate(value) ? value : ''
+    } catch {
+      return ''
+    }
+  })
+  const [manualDay, setDay] = useState<DayType | null>(null)
   const [shareMessage, setShareMessage] = useState('')
   const [filter, setFilter] = useState('すべて')
   const [search, setSearch] = useState('')
   const [copyFallback, setCopyFallback] = useState(false)
+  const localDate = japanToday(now)
+  const day = travelDate ? dayForDate(travelDate) : (manualDay ?? dayForDate(localDate))
   const train = transport[day]
-  const localDate = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date())
-  const notices = closureNotices.filter((n) => n.end >= localDate)
+  const notices = noticesForDate(travelDate, localDate)
+  useEffect(() => {
+    const update = () => setNow(new Date())
+    const timer = window.setInterval(update, 30000)
+    document.addEventListener('visibilitychange', update)
+    return () => {
+      window.clearInterval(timer)
+      document.removeEventListener('visibilitychange', update)
+    }
+  }, [])
+  function selectDate(value: string) {
+    setTravelDate(value)
+    setDay(null)
+    try {
+      if (value) localStorage.setItem('momen-travel-date', value)
+      else localStorage.removeItem('momen-travel-date')
+    } catch {
+      /* private browsing: state remains usable */
+    }
+  }
   const query = search.trim().normalize('NFKC').toLocaleLowerCase('ja')
-  const nameMatch = spots.some((s) =>
-    s.name.normalize('NFKC').toLocaleLowerCase('ja').includes(query),
+  const nameMatch =
+    query.length >= 4 &&
+    allPlaces.filter((s) => s.name.normalize('NFKC').toLocaleLowerCase('ja').includes(query))
+      .length === 1
+  const matches = (s: Spot) =>
+    nameMatch
+      ? s.name.normalize('NFKC').toLocaleLowerCase('ja').includes(query)
+      : `${s.name} ${s.category} ${s.tagline} ${s.description} ${'genre' in s ? s.genre : ''} ${s.category === '食事' ? '食べ物 飲食 ランチ' : ''}`
+          .normalize('NFKC')
+          .toLocaleLowerCase('ja')
+          .includes(query)
+  const visibleSpots = spots.filter(
+    (s) => (filter === 'すべて' || s.category === filter) && matches(s),
   )
-  const visibleSpots = spots.filter((s) => {
-    const haystack = nameMatch ? s.name : `${s.name} ${s.tagline} ${s.description}`
-    return (
-      (filter === 'すべて' || s.category === filter) &&
-      haystack.normalize('NFKC').toLocaleLowerCase('ja').includes(query)
-    )
-  })
+  const visibleRestaurants = restaurants.filter(
+    (s) => (filter === 'すべて' || filter === '食事') && matches(s),
+  )
   async function shareTrip() {
     try {
       if (navigator.share) {
@@ -243,7 +323,37 @@ function App() {
         </nav>
         <span className="masthead-right">A DAY IN HIRATA</span>
       </header>
-      <main id="main">
+      <OfflineNotice />
+      <TravelMain mode={mode}>
+        <TravelControls
+          mode={mode}
+          onMode={selectMode}
+          date={travelDate}
+          onDate={selectDate}
+          day={day}
+        />
+        {mode === 'local' && (
+          <NowTripPanel day={day} date={travelDate} today={localDate} now={now} />
+        )}
+        {mode === 'local' && (
+          <nav className="section field-links" aria-label="現地で使うリンク">
+            <a className="action" href="#map">
+              MAP
+            </a>
+            <External href={spots[1].links.appleMaps!}>街道のApple Maps</External>
+            <a className="action" href="#timetables">
+              帰りの電車
+            </a>
+            <External href={transport.status}>一畑電車運行情報</External>
+            <a className="action" href="#spots">
+              店舗の営業情報・電話
+            </a>
+            <External href={bath.links.today!}>温泉の営業情報</External>
+            <a className="action" href={`tel:${bath.links.phone!.replaceAll('-', '')}`}>
+              温泉に電話
+            </a>
+          </nav>
+        )}
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
             <p className="eyebrow">
@@ -267,9 +377,6 @@ function App() {
               </a>
               <a className="button" href="#map">
                 MAP <MapPin size={16} />
-              </a>
-              <a href="#timetables" className="button">
-                両駅の公式時刻表
               </a>
             </div>
             <p className="hero-footnote">町家ランチ / 手仕事 / 温泉</p>
@@ -296,9 +403,6 @@ function App() {
           </External>
           <External href={transport.return}>雲州平田駅の時刻表</External>
           <External href={transport.status}>運行情報</External>
-          <a className="action" href="#walking-course">
-            約6kmの散歩コース
-          </a>
           <External href={lunch.links.instagram!}>
             <Instagram size={16} />
             ランチ最新情報
@@ -355,13 +459,14 @@ function App() {
           <p className="section-lead">
             電車の運行、ランチの席、お店の営業。出かける前の小さな準備を。
           </p>
+          {mode === 'plan' && <TravelDatePicker date={travelDate} onDate={selectDate} day={day} />}
           <div className="check-grid">
             <div>
               <TrainFront size={22} />
               <h3>一畑電車</h3>
-              <External href={transport.outbound}>松江しんじ湖温泉駅の時刻表</External>
-              <External href={transport.return}>雲州平田駅の時刻表</External>
-              <External href={transport.status}>運行情報</External>
+              <a className="action" href="#access">
+                時刻表・運行情報を確認
+              </a>
             </div>
             <div>
               <Utensils size={22} />
@@ -406,6 +511,7 @@ function App() {
           </div>
           {notices.map((n) => (
             <p className="notice" key={n.id}>
+              {travelDate && <strong>この日は休館： </strong>}
               {n.text} <External href={n.url}>休館案内</External>
             </p>
           ))}
@@ -461,15 +567,24 @@ function App() {
             全部を回らなくても、よい一日。
           </p>
           <div className="day-switch" role="group" aria-label="旅程の曜日">
-            <button aria-pressed={day === 'weekday'} onClick={() => setDay('weekday')}>
+            <button
+              aria-pressed={day === 'weekday'}
+              disabled={!!travelDate}
+              onClick={() => setDay('weekday')}
+            >
               平日
             </button>
-            <button aria-pressed={day === 'holiday'} onClick={() => setDay('holiday')}>
+            <button
+              aria-pressed={day === 'holiday'}
+              disabled={!!travelDate}
+              onClick={() => setDay('holiday')}
+            >
               土日祝
             </button>
           </div>
           <p className="small-note">
-            祝日は自動判定していません。旅する日の区分を選んでください。{transport.revision}
+            旅行日を選択中は自動判定を優先します。手動切替は日付をクリアしてご利用ください。
+            {transport.revision}
           </p>
           <div className="journey-summary" aria-live="polite">
             <span>
@@ -495,6 +610,11 @@ function App() {
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.description}</p>
+                    {place && closureWarning(place, travelDate || localDate) && (
+                      <p className="schedule-warning">
+                        {closureWarning(place, travelDate || localDate)}
+                      </p>
+                    )}
                     {place && <Actions spot={place} compact />}
                     {item.extraLink && (
                       <External href={item.extraLink.href}>{item.extraLink.label}</External>
@@ -528,7 +648,7 @@ function App() {
           <SectionHeading number="04" eyebrow="A TABLE IN THE OLD TOWN">
             町家で、昼ごはん。
           </SectionHeading>
-          <article className="featured-food">
+          <article className="featured-food" id="food-trattoria">
             <PhotoGallery id="trattoria" name={lunch.name} />
             <div className="food-copy">
               <p className="eyebrow">OUR FIRST CHOICE · 要予約</p>
@@ -551,7 +671,7 @@ function App() {
           <p>各店の営業と席を確認してから移動を。歩く時間は目安です。</p>
           <div className="restaurant-grid">
             {restaurants.slice(1).map((r) => (
-              <article key={r.id} className="restaurant">
+              <article key={r.id} className="restaurant" id={`food-${r.id}`}>
                 <PhotoGallery id={r.id} name={r.name} />
                 <div className="restaurant-copy">
                   <p className="eyebrow">{r.genre}</p>
@@ -594,20 +714,34 @@ function App() {
               />
             </label>
             <p className="collection-count" aria-live="polite">
-              {visibleSpots.length} PLACES
+              {visibleSpots.length + (query || filter === '食事' ? visibleRestaurants.length : 0)}{' '}
+              PLACES
             </p>
           </div>
           <div className="filters" role="group" aria-label="スポットの種類">
-            {['すべて', '老舗', '手仕事', '建築', '案内', '神社', '温泉', '駅'].map((f) => (
+            {['すべて', '老舗', '手仕事', '建築', '案内', '神社', '温泉', '駅', '食事'].map((f) => (
               <button key={f} aria-pressed={filter === f} onClick={() => setFilter(f)}>
                 {f}
               </button>
             ))}
           </div>
-          {visibleSpots.length === 0 && (
+          {visibleSpots.length === 0 && visibleRestaurants.length === 0 && (
             <p className="empty-search">
               見つかりませんでした。店名を短くするか、種類を「すべて」にして探してください。
             </p>
+          )}
+          {(query || filter === '食事') && visibleRestaurants.length > 0 && (
+            <div className="restaurant-results" aria-label="飲食店の検索結果">
+              {visibleRestaurants.map((r) => (
+                <a className="restaurant-result" key={r.id} href={`#food-${r.id}`}>
+                  <strong>{r.name}</strong>
+                  <span>
+                    {r.genre} / {r.tagline}
+                  </span>
+                  <span>店舗の詳しい案内へ →</span>
+                </a>
+              ))}
+            </div>
           )}
           <div className="spot-list">
             {visibleSpots.map((spot, i) => (
@@ -667,28 +801,7 @@ function App() {
           <p className="section-lead">
             ピンを選んで、次の場所へ。Apple Mapsで歩く道を確認できます。
           </p>
-          <OfficialMap />
-          <WalkingCourse />
-          <h3 className="interactive-map-heading">地図アプリへつながる、町歩きMAP。</h3>
-          <div className="map-frame">
-            {mapReady ? (
-              <Suspense fallback={<div className="map-loading">地図を読み込んでいます…</div>}>
-                <GuideMap />
-              </Suspense>
-            ) : (
-              <div className="map-placeholder">
-                <MapPin size={36} strokeWidth={1} />
-                <h3>木綿街道と、駅と、温泉。</h3>
-                <p>地図を開くとOpenStreetMapに接続します。</p>
-                <button className="button primary" onClick={() => setMapReady(true)}>
-                  町歩きMAPを開く <ArrowUpRight size={16} />
-                </button>
-              </div>
-            )}
-          </div>
-          <p className="small-note">
-            地図の位置は入口を保証するものではありません。道順は地図アプリで確認を。読み込めない場合も各施設のMAPボタンと公式散策マップが使えます。
-          </p>
+          <MapTabs />
           <div className="actions">
             <External href={guideLinks.officialMap}>公式散策マップ（PDF）</External>
             <External href={guideLinks.officialCoordinates}>公式の施設配置図</External>
@@ -755,7 +868,7 @@ function App() {
             「ホーム画面に追加」すると旅先ですぐ開けます。
           </p>
         </section>
-      </main>
+      </TravelMain>
       <footer>
         <div className="footer-brand">
           <span className="seal">木綿</span>
@@ -780,9 +893,9 @@ function App() {
         </div>
       </footer>
       <nav className="bottom-nav" aria-label="旅行中の固定ナビ">
-        <a href="#schedule">
+        <a href={mode === 'local' ? '#now-trip' : '#schedule'}>
           <CalendarDays size={20} />
-          旅程
+          {mode === 'local' ? '次の予定' : '旅程'}
         </a>
         <a href="#map">
           <MapPin size={20} />

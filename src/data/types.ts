@@ -21,6 +21,8 @@ export type Spot = {
   coordinateSource: string
   hours: string
   closed: string
+  closedWeekdays?: number[]
+  holidayClosureNextDay?: boolean
   price?: string
   note?: string
   reservationLabel?: string

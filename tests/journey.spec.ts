@@ -60,6 +60,7 @@ test('旅行の動線・曜日・地図・タップ領域', async ({ page }) => 
       .map((n) => n.textContent),
   )
   expect(undersized).toEqual([])
+  await page.getByRole('tab', { name: 'スポットMAP', exact: true }).click()
   await page.getByRole('button', { name: '町歩きMAPを開く' }).click()
   await expect(page.locator('.leaflet-marker-icon')).toHaveCount(spots.length + restaurants.length)
   const markerDot = await page.locator('.guide-marker span').first().boundingBox()

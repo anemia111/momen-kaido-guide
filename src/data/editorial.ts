@@ -33,10 +33,19 @@ export const architecture = [
   },
 ]
 
-export const closureNotices = [
+export const closureNotices: {
+  id: string
+  start: string
+  end: string
+  displayFrom?: string
+  text: string
+  url: string
+}[] = [
   {
     id: 'yurari-maintenance-2026-10',
+    start: '2026-10-06',
     end: '2026-10-07',
+    displayFrom: '2026-09-06',
     text: 'ゆらり：10月6日（火）・7日（水）はメンテナンス休館です。',
     url: 'http://yurari-izumo.jp/publics/index/35/',
   },
