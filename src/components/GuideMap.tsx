@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { divIcon } from 'leaflet'
+import type { Map as LeafletMap, Marker as LeafletMarker } from 'leaflet'
 import { spots } from '../data/spots'
 import { restaurants } from '../data/restaurants'
 import 'leaflet/dist/leaflet.css'
@@ -15,11 +16,14 @@ const icon = divIcon({
 })
 export default function GuideMap() {
   const [tileError, setTileError] = useState(false)
+  const mapRef = useRef<LeafletMap | null>(null)
+  const markerRefs = useRef<Record<string, LeafletMarker>>({})
   return (
     <>
       <MapContainer
-        center={[35.4368, 132.8219]}
-        zoom={16}
+        ref={mapRef}
+        bounds={places.map((place) => place.coordinates)}
+        boundsOptions={{ padding: [24, 24] }}
         scrollWheelZoom={false}
         className="guide-map"
         aria-label="木綿街道周辺の観光施設の地図"
@@ -32,6 +36,9 @@ export default function GuideMap() {
         {places.map((place) => (
           <Marker
             key={place.id}
+            ref={(marker) => {
+              if (marker) markerRefs.current[place.id] = marker
+            }}
             position={place.coordinates}
             icon={icon}
             title={place.name}
@@ -53,6 +60,27 @@ export default function GuideMap() {
           </Marker>
         ))}
       </MapContainer>
+      <label className="map-selector">
+        施設を名前で選ぶ
+        <select
+          defaultValue=""
+          onChange={(event) => {
+            const place = places.find((p) => p.id === event.currentTarget.value)
+            if (!place) return
+            mapRef.current?.setView(place.coordinates, 18, { animate: false })
+            markerRefs.current[place.id]?.openPopup()
+          }}
+        >
+          <option value="" disabled>
+            行きたい場所を選択
+          </option>
+          {places.map((p) => (
+            <option key={p.id} value={p.id}>
+              {p.name}
+            </option>
+          ))}
+        </select>
+      </label>
       {tileError && (
         <p className="map-error" role="status">
           地図の背景を読み込めませんでした。ピンの地図アプリリンク、または公式散策マップをご利用ください。

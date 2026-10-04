@@ -10,6 +10,17 @@ test('旅行の動線・曜日・地図・タップ領域', async ({ page }) => 
   await page.goto('')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('静かな一日。')
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+  await page.locator('.bottom-nav').getByRole('link', { name: '時刻表', exact: true }).click()
+  await expect(page.locator('#timetables')).toBeInViewport()
+  await expect(page.locator('#timetables img')).toHaveCount(2)
+  await expect(
+    page
+      .locator('#timetables')
+      .getByRole('link', { name: '松江しんじ湖温泉駅の公式PDF', exact: true }),
+  ).toHaveAttribute('href', transport.outbound)
+  await expect(
+    page.locator('#timetables').getByRole('link', { name: '雲州平田駅の公式PDF', exact: true }),
+  ).toHaveAttribute('href', transport.return)
   await page.getByRole('button', { name: '平日', exact: true }).click()
   await expect(page.locator('.journey-summary')).toContainText('09:42 → 10:22')
   await expect(page.locator('.journey-summary')).toContainText('16:47 → 17:26')
@@ -21,6 +32,9 @@ test('旅行の動線・曜日・地図・タップ領域', async ({ page }) => 
   ).toHaveAttribute('href', transport.return)
   await page.getByRole('link', { name: '満席なら、ほかの食事候補へ' }).click()
   await expect(page.locator('#food .restaurant')).toHaveCount(3)
+  await expect(page.locator('#food .menu-preview')).toHaveCount(4)
+  await expect(page.locator('.official-map-sheet img')).toHaveCount(2)
+  await expect(page.locator('.place-photo')).toHaveCount(2)
   await expect(
     page.locator('#food').getByRole('link', { name: 'trattorìa 814の公式Instagram' }),
   ).toHaveAttribute('href', restaurants[0].links.instagram!)
@@ -48,7 +62,9 @@ test('旅行の動線・曜日・地図・タップ領域', async ({ page }) => 
   expect(undersized).toEqual([])
   await page.getByRole('button', { name: '町歩きMAPを開く' }).click()
   await expect(page.locator('.leaflet-marker-icon')).toHaveCount(spots.length + restaurants.length)
-  await page.locator('.leaflet-marker-icon[title="宇美神社"]').click()
+  const markerDot = await page.locator('.guide-marker span').first().boundingBox()
+  expect(markerDot?.width).toBeGreaterThanOrEqual(18)
+  await page.getByLabel('施設を名前で選ぶ').selectOption('umi')
   await expect(page.locator('.leaflet-popup')).toContainText('宇美神社')
   await expect(
     page.locator('.leaflet-popup').getByRole('link', { name: 'Apple Maps' }),
@@ -98,8 +114,15 @@ test('アクセシビリティ・外部リンク・ホーム画面用ファイ�
     'ogp.png',
     'favicon.svg',
     'townscape.svg',
+    'timetables/matsue.webp',
+    'timetables/hirata.webp',
+    'official-map/page-1.webp',
+    'official-map/page-2.webp',
+    'photos/station-exterior.webp',
+    'photos/kurumaya-shogato.webp',
   ])
     expect((await request.get(asset)).status()).toBe(200)
+  expect((await request.head('official-map/momen-kaido-official.pdf')).status()).toBe(200)
 })
 
 test('共有・コピーと権限拒否時の代替', async ({ page }) => {

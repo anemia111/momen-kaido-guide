@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-04T00:57:32.685Z",
+  "checkedAt": "2026-10-04T01:18:48.156Z",
   "links": [
     {
       "url": "http://yurari-izumo.jp/",
@@ -57,6 +57,26 @@
       "finalUrl": "https://booking.momen-kaidou.jp/provider/plans?providerId=13&un=on&unguest=on&r=1&roomUsage=020000000"
     },
     {
+      "url": "https://commons.wikimedia.org/wiki/File:Shogat%C5%8D_made_by_Kurumaya.jpg",
+      "status": 200,
+      "finalUrl": "https://commons.wikimedia.org/wiki/File:Shogat%C5%8D_made_by_Kurumaya.jpg"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Unsh%C5%AB-Hirata_Station_01.jpg",
+      "status": 200,
+      "finalUrl": "https://commons.wikimedia.org/wiki/File:Unsh%C5%AB-Hirata_Station_01.jpg"
+    },
+    {
+      "url": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "status": 200,
+      "finalUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+    },
+    {
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "status": 200,
+      "finalUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
       "url": "https://fufuramen.com/shop/風風ラーメン島根店/",
       "status": 200,
       "finalUrl": "https://fufuramen.com/shop/%E9%A2%A8%E9%A2%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%E5%B3%B6%E6%A0%B9%E5%BA%97/"
@@ -70,6 +90,16 @@
       "url": "https://kitaen.owst.jp/",
       "status": 200,
       "finalUrl": "https://kitaen.owst.jp/"
+    },
+    {
+      "url": "https://kitaen.owst.jp/foods",
+      "status": 200,
+      "finalUrl": "https://kitaen.owst.jp/foods"
+    },
+    {
+      "url": "https://kitaen.owst.jp/gallery",
+      "status": 200,
+      "finalUrl": "https://kitaen.owst.jp/gallery"
     },
     {
       "url": "https://leafletjs.com",
@@ -200,6 +230,11 @@
       "url": "https://momenkaidou.wixsite.com/watanohana",
       "status": 200,
       "finalUrl": "https://momenkaidou.wixsite.com/watanohana"
+    },
+    {
+      "url": "https://momenkaidou.wixsite.com/watanohana/店舗内メニュー",
+      "status": 200,
+      "finalUrl": "https://momenkaidou.wixsite.com/watanohana/%E5%BA%97%E8%88%97%E5%86%85%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC"
     },
     {
       "url": "https://railway.ichibata.co.jp/",
@@ -360,6 +395,21 @@
       "url": "https://www.instagram.com/trattoria814hachiichiyon/",
       "status": 200,
       "finalUrl": "https://www.instagram.com/trattoria814hachiichiyon/"
+    },
+    {
+      "url": "https://www.kankou-shimane.com/gallery/81541",
+      "status": 200,
+      "finalUrl": "https://www.kankou-shimane.com/gallery/81541"
+    },
+    {
+      "url": "https://www.kankou-shimane.com/gallery/81551",
+      "status": 200,
+      "finalUrl": "https://www.kankou-shimane.com/gallery/81551"
+    },
+    {
+      "url": "https://www.kankou-shimane.com/gallery/81557",
+      "status": 200,
+      "finalUrl": "https://www.kankou-shimane.com/gallery/81557"
     },
     {
       "url": "https://www.kankou-shimane.com/pickup/32958.html",

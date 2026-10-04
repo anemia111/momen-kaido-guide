@@ -753,12 +753,13 @@
   width: 100%;
   z-index: 0;
 }
-.guide-marker {
+.leaflet-container .guide-marker {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .guide-marker span {
+  display: block;
   width: 18px;
   height: 18px;
   background: var(--blue);
@@ -815,6 +816,29 @@
 .map-error {
   background: #e8ddc6;
   padding: 16px;
+  font-size: 12px;
+}
+.map-section .map-frame {
+  height: auto;
+}
+.map-selector {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px;
+  font-size: 12px;
+  background: #eef0e8;
+}
+.map-selector select {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 8px 12px;
+  flex: 1;
+  min-width: 180px;
+  border: 1px solid #9da99b;
+  background: var(--paper);
+  color: var(--ink);
   font-size: 12px;
 }
 .budget-layout {

@@ -22,6 +22,10 @@ import { architecture, closureNotices, introParagraphs, dayPlanning } from './da
 import { costs, totals } from './data/costs'
 import type { DayType, Spot } from './data/types'
 import './App.css'
+import './media.css'
+import OfficialMap from './components/OfficialMap'
+import PlaceMedia from './components/PlaceMedia'
+import OfficialTimetables from './components/OfficialTimetables'
 
 const GuideMap = lazy(() => import('./components/GuideMap'))
 const allPlaces = [...spots, ...restaurants]
@@ -117,6 +121,7 @@ function PlaceDetails({ place }: { place: Spot }) {
   return (
     <>
       <p className="place-description">{place.description}</p>
+      <PlaceMedia id={place.id} name={place.name} />
       <dl className="details">
         <div>
           <dt>住所</dt>
@@ -241,9 +246,9 @@ function App() {
               <a className="button" href="#map">
                 MAP <MapPin size={16} />
               </a>
-              <External href={transport.timetable} className="button">
-                時刻表
-              </External>
+              <a href="#timetables" className="button">
+                両駅の公式時刻表
+              </a>
             </div>
             <p className="hero-footnote">町家ランチ / 手仕事 / 温泉</p>
           </div>
@@ -263,10 +268,11 @@ function App() {
         </section>
         <nav className="quick-links" aria-label="旅先ですぐ使うリンク">
           <span className="eyebrow">QUICK LINKS</span>
-          <External href={transport.timetable}>
+          <External href={transport.outbound}>
             <TrainFront size={16} />
-            時刻表
+            松江しんじ湖温泉駅の時刻表
           </External>
+          <External href={transport.return}>雲州平田駅の時刻表</External>
           <External href={transport.status}>運行情報</External>
           <External href={lunch.links.instagram!}>
             <Instagram size={16} />
@@ -305,7 +311,8 @@ function App() {
             <div>
               <TrainFront size={22} />
               <h3>一畑電車</h3>
-              <External href={transport.timetable}>時刻表</External>
+              <External href={transport.outbound}>松江しんじ湖温泉駅の時刻表</External>
+              <External href={transport.return}>雲州平田駅の時刻表</External>
               <External href={transport.status}>運行情報</External>
             </div>
             <div>
@@ -383,7 +390,8 @@ function App() {
                 <span>往復 {transport.fareReturn.toLocaleString('ja-JP')}円 / 大人普通運賃</span>
               </p>
               <div className="actions">
-                <External href={transport.timetable}>公式時刻表を見る</External>
+                <External href={transport.outbound}>行き：松江しんじ湖温泉駅の公式時刻表</External>
+                <External href={transport.return}>帰り：雲州平田駅の公式時刻表</External>
                 <External href={transport.status}>運行情報を見る</External>
                 <External href={transport.fare}>運賃を見る</External>
                 <External href={transport.official}>一畑電車公式サイト</External>
@@ -393,6 +401,7 @@ function App() {
               </p>
             </div>
           </div>
+          <OfficialTimetables />
         </section>
         <section id="schedule" className="section schedule">
           <SectionHeading number="03" eyebrow="YOUR DAY, AT YOUR PACE">
@@ -590,6 +599,8 @@ function App() {
           <p className="section-lead">
             ピンを選んで、次の場所へ。Apple Mapsで歩く道を確認できます。
           </p>
+          <OfficialMap />
+          <h3 className="interactive-map-heading">地図アプリへつながる、町歩きMAP。</h3>
           <div className="map-frame">
             {mapReady ? (
               <Suspense fallback={<div className="map-loading">地図を読み込んでいます…</div>}>
@@ -690,7 +701,7 @@ function App() {
         <p className="small-note">
           このサイトは個人制作の旅ガイドです。各施設・鉄道の公式サイトではありません。
           <br />
-          線画は本サイトのオリジナル。外部サイトは新しいタブで開きます。
+          冒頭の線画は本サイトのオリジナル。写真・公式マップの出典は各掲載箇所に記載。外部サイトは新しいタブで開きます。
         </p>
         <div className="actions">
           <External href={guideLinks.momen}>木綿街道公式</External>
@@ -708,10 +719,10 @@ function App() {
           <MapPin size={20} />
           MAP
         </a>
-        <External href={transport.timetable}>
+        <a href="#timetables">
           <TrainFront size={20} />
           時刻表
-        </External>
+        </a>
         <a href="#spots">
           <BookOpen size={20} />
           スポット

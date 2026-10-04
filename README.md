@@ -42,21 +42,24 @@ npm test
 
 ## 主な構成と情報更新
 
-| ファイル                       | 更新する情報                                              |
-| ------------------------------ | --------------------------------------------------------- |
-| `src/data/links.ts`            | 公式URL、SNS、予約URL、電話、共通出典、確認日、公開URL    |
-| `src/data/spots.ts`            | 住所、営業、休み、料金、説明、座標、出典                  |
-| `src/data/restaurants.ts`      | 飲食候補、予算、予約可否、徒歩目安                        |
-| `src/data/transport.ts`        | 電車時刻、列車番号、運賃、改正日、公式ダイヤURL           |
-| `src/data/schedule.ts`         | 徒歩・滞在時間とモデルコース。列車時刻はtransportから参照 |
-| `src/data/costs.ts`            | 費用内訳と合計。価格改定時に両方を再計算                  |
-| `src/data/editorial.ts`        | 建築、旅の紹介、曜日の注意、期限付き臨時休館情報          |
-| `src/data/types.ts`            | 施設・リンク・旅程の型                                    |
-| `src/App.tsx` / `src/App.css`  | 画面・共有・絞り込み・モバイル表示                        |
-| `src/components/GuideMap.tsx`  | 地図、マーカー、地図アプリへの導線、地図障害の案内        |
-| `public/`                      | オリジナル線画・アイコン、Manifest、共有画像              |
-| `tests/journey.spec.ts`        | 旅行中の動線と端末幅の検証                                |
-| `.github/workflows/deploy.yml` | 自動検証とPages公開                                       |
+| ファイル                                                           | 更新する情報                                              |
+| ------------------------------------------------------------------ | --------------------------------------------------------- |
+| `src/data/links.ts`                                                | 公式URL、SNS、予約URL、電話、共通出典、確認日、公開URL    |
+| `src/data/spots.ts`                                                | 住所、営業、休み、料金、説明、座標、出典                  |
+| `src/data/restaurants.ts`                                          | 飲食候補、予算、予約可否、徒歩目安                        |
+| `src/data/transport.ts`                                            | 電車時刻、列車番号、運賃、改正日、公式ダイヤURL           |
+| `src/data/schedule.ts`                                             | 徒歩・滞在時間とモデルコース。列車時刻はtransportから参照 |
+| `src/data/costs.ts`                                                | 費用内訳と合計。価格改定時に両方を再計算                  |
+| `src/data/editorial.ts`                                            | 建築、旅の紹介、曜日の注意、期限付き臨時休館情報          |
+| `src/data/media.ts`                                                | 写真の出典・ライセンス、公式写真リンク、メニュー価格      |
+| `src/components/OfficialTimetables.tsx`                            | 両駅の公式時刻表の紙面表示とPDFへの直接リンク             |
+| `src/components/OfficialMap.tsx` / `src/components/PlaceMedia.tsx` | 公式散策マップ、写真、メニュー表示                        |
+| `src/data/types.ts`                                                | 施設・リンク・旅程の型                                    |
+| `src/App.tsx` / `src/App.css`                                      | 画面・共有・絞り込み・モバイル表示                        |
+| `src/components/GuideMap.tsx`                                      | 地図、マーカー、地図アプリへの導線、地図障害の案内        |
+| `public/`                                                          | オリジナル線画・アイコン、Manifest、共有画像              |
+| `tests/journey.spec.ts`                                            | 旅行中の動線と端末幅の検証                                |
+| `.github/workflows/deploy.yml`                                     | 自動検証とPages公開                                       |
 
 ### 観光情報・リンクを変える
 
@@ -88,6 +91,6 @@ GitHubの **Settings → Pages → Source: GitHub Actions** に設定済みで�
 
 一畑電車公式、木綿街道公式・公式体験予約サイト、各店公式サイト、RITA出雲平田の公式食事案内、島根県観光公式、平田商工会議所を参照。詳細なURLと採用理由は[調査メモ](docs/research-notes.md)および画面の「情報源・確認日」に記載しています。
 
-`townscape.svg`、食事の線画、建築スケッチ、faviconとホーム画面アイコン、OGP画像は本プロジェクトで作成したオリジナル。商家や水路をイメージした図で、実在の建物の正確な再現図ではありません。外部の店舗写真、SNS画像、観光パンフレット画像は転載していません。地図はOpenStreetMapの帰属を表示し、タイルを大量取得／事前保存していません。アイコンの再生成はPlaywrightインストール後に `node scripts/generate-art.mjs`。
+`townscape.svg`、食事の線画、建築スケッチ、faviconとホーム画面アイコン、OGP画像は本プロジェクトで作成したオリジナル。商家や水路をイメージした図で、実在の建物の正確な再現図ではありません。利用条件を確認したCC BY-SAの写真2点と、ユーザー指定による公式散策マップ原本を掲載。各店の公式写真へのリンク、飲食4店のメニュー・価格案内も用意しています。写真の出典・利用条件は[素材記録](docs/media-sources.md)をご覧ください。両駅の公式時刻表は固定ナビからワンタップで表示され、各駅の公式PDFを直接開けます。地図はOpenStreetMapの帰属を表示し、タイルを大量取得／事前保存していません。アイコンの再生成はPlaywrightインストール後に `node scripts/generate-art.mjs`。
 
 ![iPhone幅の画面](docs/screenshots/iphone-390.png)
