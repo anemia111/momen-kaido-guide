@@ -24,9 +24,11 @@ import type { DayType, Spot } from './data/types'
 import './App.css'
 import './media.css'
 import './luxury.css'
+import './walking-course.css'
 import PhotoGallery from './components/PhotoGallery'
 import { privatePhotos } from './data/privateMedia'
 import OfficialMap from './components/OfficialMap'
+import WalkingCourse from './components/WalkingCourse'
 import PlaceMedia from './components/PlaceMedia'
 import OfficialTimetables from './components/OfficialTimetables'
 
@@ -294,6 +296,9 @@ function App() {
           </External>
           <External href={transport.return}>雲州平田駅の時刻表</External>
           <External href={transport.status}>運行情報</External>
+          <a className="action" href="#walking-course">
+            約6kmの散歩コース
+          </a>
           <External href={lunch.links.instagram!}>
             <Instagram size={16} />
             ランチ最新情報
@@ -663,6 +668,7 @@ function App() {
             ピンを選んで、次の場所へ。Apple Mapsで歩く道を確認できます。
           </p>
           <OfficialMap />
+          <WalkingCourse />
           <h3 className="interactive-map-heading">地図アプリへつながる、町歩きMAP。</h3>
           <div className="map-frame">
             {mapReady ? (

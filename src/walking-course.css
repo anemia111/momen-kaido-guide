@@ -1,0 +1,105 @@
+.walking-course {
+  margin-top: 64px;
+  padding: 36px;
+  border: 1px solid var(--line);
+  background: #f1f3ed;
+  scroll-margin-top: 28px;
+}
+.walking-course-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px;
+  align-items: center;
+}
+.walking-course h3 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 500;
+  margin: 12px 0 20px;
+}
+.walking-course p {
+  font-size: 13px;
+  line-height: 2;
+}
+.walking-course-facts {
+  margin: 0;
+  display: grid;
+  gap: 18px;
+  padding-left: 28px;
+  border-left: 1px solid var(--line);
+}
+.walking-course-facts dt {
+  font-size: 11px;
+  color: var(--muted);
+}
+.walking-course-facts dd {
+  margin: 6px 0 0;
+  font-family: var(--serif);
+  font-size: 27px;
+}
+.walking-course-name {
+  margin: 32px 0 12px;
+  font-weight: 500;
+}
+.walking-course-map {
+  margin: 0;
+}
+.walking-course-map a {
+  display: block;
+  border: 1px solid var(--line);
+  background: white;
+}
+.walking-course-map img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.walking-course-map figcaption {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-top: 12px;
+}
+.walking-course-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 32px 0;
+}
+.walking-course-highlights h4 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 20px;
+  margin: 14px 0 10px;
+}
+.walking-course-planning {
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+.walking-course .small-note {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 20px;
+}
+@media (max-width: 700px) {
+  .walking-course {
+    padding: 24px 16px;
+    margin-top: 40px;
+  }
+  .walking-course-intro {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .walking-course-facts {
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+    border: 0;
+  }
+  .walking-course-facts dd {
+    font-size: 24px;
+  }
+  .walking-course-highlights {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
