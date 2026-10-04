@@ -23,6 +23,9 @@ import { costs, totals } from './data/costs'
 import type { DayType, Spot } from './data/types'
 import './App.css'
 import './media.css'
+import './luxury.css'
+import PhotoGallery from './components/PhotoGallery'
+import { privatePhotos } from './data/privateMedia'
 import OfficialMap from './components/OfficialMap'
 import PlaceMedia from './components/PlaceMedia'
 import OfficialTimetables from './components/OfficialTimetables'
@@ -117,11 +120,11 @@ function Actions({ spot, compact = false }: { spot: Spot; compact?: boolean }) {
     </div>
   )
 }
-function PlaceDetails({ place }: { place: Spot }) {
+function PlaceDetails({ place, withoutMedia = false }: { place: Spot; withoutMedia?: boolean }) {
   return (
     <>
       <p className="place-description">{place.description}</p>
-      <PlaceMedia id={place.id} name={place.name} />
+      {!withoutMedia && <PlaceMedia id={place.id} name={place.name} />}
       <dl className="details">
         <div>
           <dt>住所</dt>
@@ -183,10 +186,22 @@ function App() {
   const [mapReady, setMapReady] = useState(false)
   const [shareMessage, setShareMessage] = useState('')
   const [filter, setFilter] = useState('すべて')
+  const [search, setSearch] = useState('')
   const [copyFallback, setCopyFallback] = useState(false)
   const train = transport[day]
   const localDate = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date())
   const notices = closureNotices.filter((n) => n.end >= localDate)
+  const query = search.trim().normalize('NFKC').toLocaleLowerCase('ja')
+  const nameMatch = spots.some((s) =>
+    s.name.normalize('NFKC').toLocaleLowerCase('ja').includes(query),
+  )
+  const visibleSpots = spots.filter((s) => {
+    const haystack = nameMatch ? s.name : `${s.name} ${s.tagline} ${s.description}`
+    return (
+      (filter === 'すべて' || s.category === filter) &&
+      haystack.normalize('NFKC').toLocaleLowerCase('ja').includes(query)
+    )
+  })
   async function shareTrip() {
     try {
       if (navigator.share) {
@@ -219,7 +234,12 @@ function App() {
           </span>
           <span>出雲平田の旅手帖</span>
         </a>
-        <span className="masthead-right">松江発 · 日帰り</span>
+        <nav className="masthead-nav" aria-label="ページの案内">
+          <a href="#food">DINING</a>
+          <a href="#spots">DISCOVER</a>
+          <a href="#schedule">PLAN YOUR DAY</a>
+        </nav>
+        <span className="masthead-right">A DAY IN HIRATA</span>
       </header>
       <main id="main">
         <section className="hero" aria-labelledby="hero-title">
@@ -254,17 +274,17 @@ function App() {
           </div>
           <div className="hero-art">
             <img
-              src={`${import.meta.env.BASE_URL}townscape.svg`}
-              width="900"
-              height="660"
-              alt="格子のある商家と瓦屋根、平田船川を描いたオリジナルの線画"
+              src={`${import.meta.env.BASE_URL}brochure-photos/center-exterior.jpg`}
+              width="800"
+              height="450"
+              alt="瓦屋根となまこ壁、緑に包まれた木綿街道交流館"
               fetchPriority="high"
             />
-            <span className="art-caption">平田船川のほとり、商いの記憶をたどる。</span>
-            <span className="vertical-label" aria-hidden="true">
-              出雲国・木綿街道
-            </span>
           </div>
+          <span className="hero-location">IZUMO / SHIMANE / JAPAN</span>
+          <a href="#intro" className="hero-scroll">
+            SCROLL TO DISCOVER <ArrowDown size={18} />
+          </a>
         </section>
         <nav className="quick-links" aria-label="旅先ですぐ使うリンク">
           <span className="eyebrow">QUICK LINKS</span>
@@ -284,7 +304,7 @@ function App() {
           </a>
           <External href={bath.links.today!}>温泉営業情報</External>
         </nav>
-        <section className="intro section" aria-labelledby="intro-title">
+        <section id="intro" className="intro section" aria-labelledby="intro-title">
           <p className="eyebrow">A TOWN WOVEN WITH HISTORY</p>
           <h2 id="intro-title">
             水の道がつないだ、
@@ -296,6 +316,29 @@ function App() {
               <p key={text}>{text}</p>
             ))}
             <External href={guideLinks.history}>木綿街道の歴史を読む</External>
+          </div>
+        </section>
+        <section className="visual-story" aria-label="木綿街道の風景">
+          <div className="story-photo">
+            <PhotoGallery name="本石橋邸" photos={[privatePhotos.atmosphere[0]]} />
+          </div>
+          <div className="story-copy">
+            <p className="eyebrow">THE ART OF A SLOW DAY</p>
+            <h2>
+              急がないことも、
+              <br />
+              旅の贅沢。
+            </h2>
+            <p>
+              庭を眺める。格子に目をとめる。
+              <br />
+              ひとつのお店で、作り手の話を聞く。
+              <br />
+              予定のあいだに、余白を残して。
+            </p>
+            <a className="button" href="#spots">
+              街道のお店を巡る <ArrowUpRight size={16} />
+            </a>
           </div>
         </section>
         <section className="section departure" id="check">
@@ -481,18 +524,7 @@ function App() {
             町家で、昼ごはん。
           </SectionHeading>
           <article className="featured-food">
-            <div className="food-art" aria-hidden="true">
-              <svg viewBox="0 0 380 300">
-                <circle cx="190" cy="148" r="108" />
-                <circle cx="190" cy="148" r="86" />
-                <path d="M150 120q75-45 67 26t-75 4 72-23-16 55-28-62M73 57v170m-13-170v55q13 20 26 0V57m224 0v170m0-170q-35 62 0 89" />
-                <path
-                  className="leaf"
-                  d="M179 136q-5-37 27-35-4 28-27 35m16 3q29-18 37 12-29 9-37-12"
-                />
-              </svg>
-              <span>LOCAL INGREDIENTS, SLOW LUNCH</span>
-            </div>
+            <PhotoGallery id="trattoria" name={lunch.name} />
             <div className="food-copy">
               <p className="eyebrow">OUR FIRST CHOICE · 要予約</p>
               <h3>{lunch.name}</h3>
@@ -515,23 +547,26 @@ function App() {
           <div className="restaurant-grid">
             {restaurants.slice(1).map((r) => (
               <article key={r.id} className="restaurant">
-                <p className="eyebrow">{r.genre}</p>
-                <h4>{r.name}</h4>
-                <p className="walk">
-                  <MapPin size={14} />
-                  {r.walk}
-                </p>
-                <dl className="details">
-                  <div>
-                    <dt>予算</dt>
-                    <dd>{r.budget}</dd>
-                  </div>
-                  <div>
-                    <dt>予約</dt>
-                    <dd>{r.booking}</dd>
-                  </div>
-                </dl>
-                <PlaceDetails place={r} />
+                <PhotoGallery id={r.id} name={r.name} />
+                <div className="restaurant-copy">
+                  <p className="eyebrow">{r.genre}</p>
+                  <h4>{r.name}</h4>
+                  <p className="walk">
+                    <MapPin size={14} />
+                    {r.walk}
+                  </p>
+                  <dl className="details">
+                    <div>
+                      <dt>予算</dt>
+                      <dd>{r.budget}</dd>
+                    </div>
+                    <div>
+                      <dt>予約</dt>
+                      <dd>{r.booking}</dd>
+                    </div>
+                  </dl>
+                  <PlaceDetails place={r} />
+                </div>
               </article>
             ))}
           </div>
@@ -543,6 +578,20 @@ function App() {
           <p className="section-lead">
             気になる場所をひとつずつ。三つの醤油店も、紙のお店も、それぞれの個性を。
           </p>
+          <div className="collection-tools">
+            <label className="shop-search">
+              <span>お店を探す</span>
+              <input
+                type="search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="店名・気になることから探す"
+              />
+            </label>
+            <p className="collection-count" aria-live="polite">
+              {visibleSpots.length} PLACES
+            </p>
+          </div>
           <div className="filters" role="group" aria-label="スポットの種類">
             {['すべて', '老舗', '手仕事', '建築', '案内', '神社', '温泉', '駅'].map((f) => (
               <button key={f} aria-pressed={filter === f} onClick={() => setFilter(f)}>
@@ -550,11 +599,20 @@ function App() {
               </button>
             ))}
           </div>
+          {visibleSpots.length === 0 && (
+            <p className="empty-search">
+              見つかりませんでした。店名を短くするか、種類を「すべて」にして探してください。
+            </p>
+          )}
           <div className="spot-list">
-            {spots
-              .filter((s) => filter === 'すべて' || s.category === filter)
-              .map((spot, i) => (
-                <article key={spot.id} className="spot" id={`spot-${spot.id}`}>
+            {visibleSpots.map((spot, i) => (
+              <article key={spot.id} className="spot" id={`spot-${spot.id}`}>
+                {spot.id === 'station' ? (
+                  <PlaceMedia id={spot.id} name={spot.name} />
+                ) : (
+                  <PhotoGallery id={spot.id} name={spot.name} />
+                )}
+                <div className="spot-copy">
                   <div className="spot-title">
                     <span className="spot-index">{String(i + 1).padStart(2, '0')}</span>
                     <div>
@@ -564,10 +622,17 @@ function App() {
                     </div>
                   </div>
                   <div>
-                    <PlaceDetails place={spot} />
+                    <p className="place-description">{spot.description}</p>
+                    <p className="shop-hours">{spot.hours}</p>
+                    <Actions spot={spot} compact />
+                    <details className="place-more">
+                      <summary>営業時間・住所・詳しい案内</summary>
+                      <PlaceDetails place={spot} withoutMedia={spot.id !== 'kurumaya'} />
+                    </details>
                   </div>
-                </article>
-              ))}
+                </div>
+              </article>
+            ))}
           </div>
         </section>
         <section className="architecture section">
@@ -579,9 +644,7 @@ function App() {
           <div className="architecture-grid">
             {architecture.map((a, i) => (
               <article key={a.number}>
-                <div className={`arch-sketch sketch-${i}`} aria-hidden="true">
-                  <span />
-                </div>
+                <PhotoGallery name={a.term} photos={[privatePhotos.architecture[i]]} />
                 <span className="eyebrow">
                   {a.number} / {a.term}
                 </span>
@@ -701,7 +764,7 @@ function App() {
         <p className="small-note">
           このサイトは個人制作の旅ガイドです。各施設・鉄道の公式サイトではありません。
           <br />
-          冒頭の線画は本サイトのオリジナル。写真・公式マップの出典は各掲載箇所に記載。外部サイトは新しいタブで開きます。
+          写真・公式マップ・メニューの出典は各掲載箇所に記載。外部サイトは新しいタブで開きます。
         </p>
         <div className="actions">
           <External href={guideLinks.momen}>木綿街道公式</External>

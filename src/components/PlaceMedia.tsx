@@ -1,5 +1,7 @@
 import { ArrowUpRight, Camera, Utensils } from 'lucide-react'
 import { placeMedia } from '../data/media'
+import PhotoGallery from './PhotoGallery'
+import { privatePhotos } from '../data/privateMedia'
 export default function PlaceMedia({ id, name }: { id: string; name: string }) {
   const media = placeMedia[id]
   if (!media) return null
@@ -71,6 +73,14 @@ export default function PlaceMedia({ id, name }: { id: string; name: string }) {
             </tbody>
           </table>
           <p className="small-note">{media.menu.note}</p>
+          {id === 'fufu' && (
+            <div className="menu-gallery">
+              <PhotoGallery
+                name="平田店の公式メニュー（2025年7月掲載）"
+                photos={privatePhotos.fufuMenu}
+              />
+            </div>
+          )}
           <a
             className="action"
             href={media.menu.url}

@@ -184,3 +184,29 @@ test('Web Share APIの共有とキャンセル', async ({ page }) => {
   await page.getByRole('button', { name: 'この旅を共有' }).click()
   await expect(page.getByRole('textbox', { name: /共有用URL/ })).toHaveCount(0)
 })
+
+test('写真の切替・拡大と店舗検索', async ({ page }) => {
+  await page.goto('')
+  await page.getByRole('button', { name: '814の店内', exact: true }).click()
+  await expect(page.locator('.featured-food .gallery-image img')).toHaveAttribute(
+    'src',
+    /trattoria-inside/,
+  )
+  await page.getByRole('button', { name: 'trattorìa 814の814の店内を拡大', exact: true }).click()
+  await expect(page.getByRole('dialog', { name: 'trattorìa 814の写真', exact: true })).toBeVisible()
+  await page.getByRole('button', { name: '写真を閉じる' }).click()
+  await expect(page.getByRole('dialog')).toHaveCount(0)
+  await page.getByRole('searchbox', { name: 'お店を探す' }).fill('持田醤油')
+  await expect(page.locator('.spot-list .spot')).toHaveCount(1)
+  await expect(page.locator('.spot-list')).toContainText('醤油ソフトクリーム')
+  await page.getByRole('searchbox', { name: 'お店を探す' }).fill('')
+  await expect(page.locator('.spot-list .spot')).toHaveCount(12)
+  await page.locator('#spot-kurumaya .place-more > summary').click()
+  await expect(page.locator('#spot-kurumaya .place-more')).toContainText('営業時間')
+  const broken = await page
+    .locator('img')
+    .evaluateAll((images) =>
+      images.filter((i) => i.complete && i.naturalWidth === 0).map((i) => i.src),
+    )
+  expect(broken).toEqual([])
+})
