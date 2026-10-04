@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="660" viewBox="0 0 900 660">
+<defs><pattern id="lattice" width="17" height="60" patternUnits="userSpaceOnUse"><path d="M2 0v60m5-60v60m5-60v37" fill="none" stroke="#8a826e" stroke-width="1.1"/></pattern><pattern id="tiles" width="33" height="14" patternUnits="userSpaceOnUse"><path d="M0 1h33M0 13h33M5 1l-4 12m32-12-4 12" fill="none" stroke="#918773" stroke-width=".9"/></pattern><pattern id="wall" width="27" height="27" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0h27v27H0z" fill="#ebe9df" stroke="#b7ac95" stroke-width="1.2"/></pattern></defs>
+<ellipse cx="460" cy="409" rx="371" ry="214" fill="#eae9dd"/><g fill="none" stroke="#786e58" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M73 449l576-108 174 132-551 135z" fill="#f5f2e8" stroke="#b8ac95"/>
+<path d="M91 467l551-109m-508 147 545-112m-459 158 510-110" stroke="#d3cab6"/>
+<path d="M553 441l270 100-451 104-212-126z" fill="#dce4df" stroke="#9daea0"/><path d="M566 461l203 73-382 88-174-96m348-51 154 62-249 61m-58-30 75-18m-179-4 110-24m79 23 45-10" stroke="#9eafa1"/>
+<path d="M480 389V196l135-72 126 158v129l-146 38z" fill="#f6f3e8"/>
+<path d="M479 196l136-87 149 174-25 12-125-145-127 69z" fill="url(#tiles)"/><path d="M479 196l137-72 125 158m-147-76v242m-106-35 240-115"/>
+<path d="M615 167l76 89-73 29-68-67z" fill="#ece9db"/><path d="M556 209l-20 10 83 98 102-41-31-21"/>
+<path d="M504 251l72-35v129l-72 28z" fill="url(#lattice)"/><path d="M616 338l83-34v103l-83 27z" fill="url(#lattice)"/><path d="M488 370l108-43 136-46 11 20-134 50-112 43z" fill="url(#tiles)"/>
+<path d="M170 397V233l137-74 149 136v145l-139 46z" fill="#f8f5eb"/>
+<path d="M154 231l152-91 171 157-28 16-145-133-135 76z" fill="url(#tiles)"/><path d="M155 231l151-72 153 141m-153-120v305"/>
+<path d="M211 273l71-34v68l-71 29z" fill="url(#lattice)"/><path d="M322 289l82 46v50l-82-35z" fill="url(#lattice)"/>
+<path d="M154 356l149-64 171 99-29 14-140-81-136 59z" fill="url(#tiles)"/><path d="M171 385l134-59 139 82m-139-82v159"/>
+<path d="M193 387l88-39v101l-88 30z" fill="url(#lattice)"/><path d="M324 377l68 38v41l-68-29z" fill="url(#wall)"/><path d="M414 425l26 15v24l-26-14z" fill="url(#wall)"/>
+<path d="M351 420v-53l38 21v50m-33-62 27 15m-26 14 27 15"/><path d="M453 398v-40l30-13v45" fill="#ebe7d9"/>
+<path d="M736 403v-34l26-11v39m-5-63v63m-11-60 12-15 13 9m-95 143 61-14 42 15-61 15z" fill="#f7f3e8"/>
+<path d="M106 423q-28-31-4-48-17-33 10-50 9-21 31-10 22-5 31 19 23 9 10 34 23 28-8 41-17 23-42 11" fill="#dbe2d3" stroke="#97a289"/><path d="M137 344v108m0-64-19-24m19 47 27-28" stroke="#97a289"/>
+<path d="M88 514l48-11m-18 23 40-9m556-327 36-9m-13 17 19-7" stroke="#b6b6a4"/>
+</g><g fill="#8c8065" font-family="serif" font-size="12"><text x="250" y="380" transform="rotate(-22 250 380)">木 綿</text><text x="637" y="360" transform="rotate(-21 637 360)">商 店</text></g>
+</svg>

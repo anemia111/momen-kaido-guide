@@ -1,0 +1,395 @@
+{
+  "checkedAt": "2026-10-04T00:57:32.685Z",
+  "links": [
+    {
+      "url": "http://yurari-izumo.jp/",
+      "status": 200,
+      "finalUrl": "http://yurari-izumo.jp/"
+    },
+    {
+      "url": "http://yurari-izumo.jp/publics/index/22/",
+      "status": 200,
+      "finalUrl": "http://yurari-izumo.jp/publics/index/22/"
+    },
+    {
+      "url": "http://yurari-izumo.jp/publics/index/35/",
+      "status": 200,
+      "finalUrl": "http://yurari-izumo.jp/publics/index/35/"
+    },
+    {
+      "url": "http://yurari-izumo.jp/publics/index/4/",
+      "status": 200,
+      "finalUrl": "http://yurari-izumo.jp/publics/index/4/"
+    },
+    {
+      "url": "https://booking.momen-kaidou.jp/activity?planId=43",
+      "status": 200,
+      "finalUrl": "https://booking.momen-kaidou.jp/activity?planId=43"
+    },
+    {
+      "url": "https://booking.momen-kaidou.jp/provider/activity_plan?planId=36&sourcePage=plalist",
+      "status": 200,
+      "finalUrl": "https://booking.momen-kaidou.jp/provider/activity_plan?planId=36&sourcePage=plalist"
+    },
+    {
+      "url": "https://booking.momen-kaidou.jp/provider/activity_plan?planId=38&providerId=10",
+      "status": 200,
+      "finalUrl": "https://booking.momen-kaidou.jp/provider/activity_plan?planId=38&providerId=10"
+    },
+    {
+      "url": "https://booking.momen-kaidou.jp/provider/activity_plan?planId=54&providerId=11",
+      "status": 200,
+      "finalUrl": "https://booking.momen-kaidou.jp/provider/activity_plan?planId=54&providerId=11"
+    },
+    {
+      "url": "https://booking.momen-kaidou.jp/provider/detail?providerId=13",
+      "status": 200,
+      "finalUrl": "https://booking.momen-kaidou.jp/provider/detail?providerId=13"
+    },
+    {
+      "url": "https://booking.momen-kaidou.jp/provider/detail?providerId=15",
+      "status": 200,
+      "finalUrl": "https://booking.momen-kaidou.jp/provider/detail?providerId=15"
+    },
+    {
+      "url": "https://booking.momen-kaidou.jp/provider/plans?providerId=13",
+      "status": 200,
+      "finalUrl": "https://booking.momen-kaidou.jp/provider/plans?providerId=13&un=on&unguest=on&r=1&roomUsage=020000000"
+    },
+    {
+      "url": "https://fufuramen.com/shop/風風ラーメン島根店/",
+      "status": 200,
+      "finalUrl": "https://fufuramen.com/shop/%E9%A2%A8%E9%A2%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%E5%B3%B6%E6%A0%B9%E5%BA%97/"
+    },
+    {
+      "url": "https://fufuramen.com/wp-content/uploads/2025/07/2025◆平田メニュー.pdf",
+      "status": 200,
+      "finalUrl": "https://fufuramen.com/wp-content/uploads/2025/07/2025%E2%97%86%E5%B9%B3%E7%94%B0%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC.pdf"
+    },
+    {
+      "url": "https://kitaen.owst.jp/",
+      "status": 200,
+      "finalUrl": "https://kitaen.owst.jp/"
+    },
+    {
+      "url": "https://leafletjs.com",
+      "status": 200,
+      "finalUrl": "https://leafletjs.com/"
+    },
+    {
+      "url": "https://maps.apple.com/?q=%E3%81%84%E3%81%9A%E3%82%82%E7%B8%81%E7%B5%90%E3%81%B3%E6%B8%A9%E6%B3%89%20%E3%82%86%E3%82%89%E3%82%8A%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA7178",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=%E3%81%84%E3%81%9A%E3%82%82%E7%B8%81%E7%B5%90%E3%81%B3%E6%B8%A9%E6%B3%89%20%E3%82%86%E3%82%89%E3%82%8A%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA7178"
+    },
+    {
+      "url": "https://maps.apple.com/?q=%E3%81%94%E3%81%AF%E3%82%93%E5%B1%8B%20%E6%A3%89%E3%81%AE%E8%8A%B1%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA841",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=%E3%81%94%E3%81%AF%E3%82%93%E5%B1%8B%20%E6%A3%89%E3%81%AE%E8%8A%B1%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA841"
+    },
+    {
+      "url": "https://maps.apple.com/?q=%E3%81%9D%E3%81%B0%E5%87%A6%20%E5%96%9C%E5%A4%9A%E7%B8%81%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA989-4",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=%E3%81%9D%E3%81%B0%E5%87%A6%20%E5%96%9C%E5%A4%9A%E7%B8%81%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA989-4"
+    },
+    {
+      "url": "https://maps.apple.com/?q=%E4%BE%86%E9%96%93%E5%B1%8B%E7%94%9F%E5%A7%9C%E7%B3%96%E6%9C%AC%E8%88%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA774",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=%E4%BE%86%E9%96%93%E5%B1%8B%E7%94%9F%E5%A7%9C%E7%B3%96%E6%9C%AC%E8%88%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA774"
+    },
+    {
+      "url": "https://maps.apple.com/?q=%E5%8A%A0%E8%97%A4%E9%86%A4%E6%B2%B9%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA884",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=%E5%8A%A0%E8%97%A4%E9%86%A4%E6%B2%B9%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA884"
+    },
+    {
+      "url": "https://maps.apple.com/?q=%E5%90%BE%E9%83%B7%E5%B1%8B%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA721",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=%E5%90%BE%E9%83%B7%E5%B1%8B%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA721"
+    },
+    {
+      "url": "https://maps.apple.com/?q=%E5%AE%87%E7%BE%8E%E7%A5%9E%E7%A4%BE%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA688-1",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=%E5%AE%87%E7%BE%8E%E7%A5%9E%E7%A4%BE%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA688-1"
+    },
+    {
+      "url": "https://maps.apple.com/?q=%E5%B2%A1%E8%8C%82%E4%B8%80%E9%83%8E%E5%95%86%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA861",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=%E5%B2%A1%E8%8C%82%E4%B8%80%E9%83%8E%E5%95%86%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA861"
+    },
+    {
+      "url": "https://maps.apple.com/?q=%E6%8C%81%E7%94%B0%E9%86%A4%E6%B2%B9%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA807",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=%E6%8C%81%E7%94%B0%E9%86%A4%E6%B2%B9%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA807"
+    },
+    {
+      "url": "https://maps.apple.com/?q=%E6%9C%A8%E7%B6%BF%E8%A1%97%E9%81%93%E4%BA%A4%E6%B5%81%E9%A4%A8%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA841",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=%E6%9C%A8%E7%B6%BF%E8%A1%97%E9%81%93%E4%BA%A4%E6%B5%81%E9%A4%A8%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA841"
+    },
+    {
+      "url": "https://maps.apple.com/?q=%E6%9C%AC%E7%9F%B3%E6%A9%8B%E9%82%B8%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA834",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=%E6%9C%AC%E7%9F%B3%E6%A9%8B%E9%82%B8%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA834"
+    },
+    {
+      "url": "https://maps.apple.com/?q=%E7%B5%B5%E3%81%AF%E3%81%8C%E3%81%8D%E5%B1%8B%E3%81%95%E3%82%93%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA820",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=%E7%B5%B5%E3%81%AF%E3%81%8C%E3%81%8D%E5%B1%8B%E3%81%95%E3%82%93%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA820"
+    },
+    {
+      "url": "https://maps.apple.com/?q=%E9%85%92%E6%8C%81%E7%94%B0%E6%9C%AC%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA785",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=%E9%85%92%E6%8C%81%E7%94%B0%E6%9C%AC%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA785"
+    },
+    {
+      "url": "https://maps.apple.com/?q=%E9%9B%B2%E5%B7%9E%E5%B9%B3%E7%94%B0%E9%A7%85%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA2226",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=%E9%9B%B2%E5%B7%9E%E5%B9%B3%E7%94%B0%E9%A7%85%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA2226"
+    },
+    {
+      "url": "https://maps.apple.com/?q=%E9%A2%A8%E9%A2%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%20%E5%B9%B3%E7%94%B0%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA2415-1",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=%E9%A2%A8%E9%A2%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%20%E5%B9%B3%E7%94%B0%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA2415-1"
+    },
+    {
+      "url": "https://maps.apple.com/?q=trattor%C3%ACa%20814%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA814",
+      "status": 200,
+      "finalUrl": "https://maps.apple.com/search?query=trattor%C3%ACa%20814%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA814"
+    },
+    {
+      "url": "https://mochidashouyu.amebaownd.com/",
+      "status": 200,
+      "finalUrl": "https://mochidashouyu.amebaownd.com/"
+    },
+    {
+      "url": "https://momen-kaidou.jp/",
+      "status": 200,
+      "finalUrl": "https://momen-kaidou.jp/"
+    },
+    {
+      "url": "https://momen-kaidou.jp/introduction/",
+      "status": 200,
+      "finalUrl": "https://momen-kaidou.jp/introduction/"
+    },
+    {
+      "url": "https://momen-kaidou.jp/map/",
+      "status": 200,
+      "finalUrl": "https://momen-kaidou.jp/map/"
+    },
+    {
+      "url": "https://momen-kaidou.jp/map/honisibasitei/",
+      "status": 200,
+      "finalUrl": "https://momen-kaidou.jp/map/honisibasitei/"
+    },
+    {
+      "url": "https://momen-kaidou.jp/map/momenkaidoukouryuukan/",
+      "status": 200,
+      "finalUrl": "https://momen-kaidou.jp/map/momenkaidoukouryuukan/"
+    },
+    {
+      "url": "https://momen-kaidou.jp/map/umi-jinja/",
+      "status": 200,
+      "finalUrl": "https://momen-kaidou.jp/map/umi-jinja/"
+    },
+    {
+      "url": "https://momen-kaidou.jp/wp-content/uploads/2026/02/0f0d9bb5f0d3abea2c69714da8c2a37c.pdf",
+      "status": 200,
+      "finalUrl": "https://momen-kaidou.jp/wp-content/uploads/2026/02/0f0d9bb5f0d3abea2c69714da8c2a37c.pdf"
+    },
+    {
+      "url": "https://momenkaidou.wixsite.com/watanohana",
+      "status": 200,
+      "finalUrl": "https://momenkaidou.wixsite.com/watanohana"
+    },
+    {
+      "url": "https://railway.ichibata.co.jp/",
+      "status": 200,
+      "finalUrl": "https://railway.ichibata.co.jp/"
+    },
+    {
+      "url": "https://railway.ichibata.co.jp/fare/futsu/list/松江しんじ湖温泉駅/",
+      "status": 200,
+      "finalUrl": "https://railway.ichibata.co.jp/fare/futsu/list/%E6%9D%BE%E6%B1%9F%E3%81%97%E3%82%93%E3%81%98%E6%B9%96%E6%B8%A9%E6%B3%89%E9%A7%85/"
+    },
+    {
+      "url": "https://railway.ichibata.co.jp/operate/timetable/list/",
+      "status": 200,
+      "finalUrl": "https://railway.ichibata.co.jp/operate/timetable/list/"
+    },
+    {
+      "url": "https://railway.ichibata.co.jp/wp-content/media/P20250401new_09_unshuhirata.pdf",
+      "status": 200,
+      "finalUrl": "https://railway.ichibata.co.jp/wp-content/media/P20250401new_09_unshuhirata.pdf"
+    },
+    {
+      "url": "https://railway.ichibata.co.jp/wp-content/media/P20250401new_22_matsueshinjikoonsen.pdf",
+      "status": 200,
+      "finalUrl": "https://railway.ichibata.co.jp/wp-content/media/P20250401new_22_matsueshinjikoonsen.pdf"
+    },
+    {
+      "url": "https://syougatou-honpo.jp/",
+      "status": 200,
+      "finalUrl": "https://syougatou-honpo.jp/"
+    },
+    {
+      "url": "https://syougatou-honpo.jp/shop-infomation/",
+      "status": 200,
+      "finalUrl": "https://syougatou-honpo.jp/shop-infomation/"
+    },
+    {
+      "url": "https://www.agouya.com/",
+      "status": 200,
+      "finalUrl": "https://www.agouya.com/"
+    },
+    {
+      "url": "https://www.agouya.com/pages/3756033/page_202004161327",
+      "status": 200,
+      "finalUrl": "https://www.agouya.com/pages/3756033/page_202004161327"
+    },
+    {
+      "url": "https://www.facebook.com/agouya/",
+      "status": 200,
+      "finalUrl": "https://www.facebook.com/agouya/"
+    },
+    {
+      "url": "https://www.google.com/maps/d/viewer?mid=1jR6TsQM3rq0VmhM7en4x1S3gHm_wkcc",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/d/viewer?mid=1jR6TsQM3rq0VmhM7en4x1S3gHm_wkcc"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=%E3%81%84%E3%81%9A%E3%82%82%E7%B8%81%E7%B5%90%E3%81%B3%E6%B8%A9%E6%B3%89%20%E3%82%86%E3%82%89%E3%82%8A%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA7178",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=%E3%81%84%E3%81%9A%E3%82%82%E7%B8%81%E7%B5%90%E3%81%B3%E6%B8%A9%E6%B3%89%20%E3%82%86%E3%82%89%E3%82%8A%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA7178"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=%E3%81%94%E3%81%AF%E3%82%93%E5%B1%8B%20%E6%A3%89%E3%81%AE%E8%8A%B1%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA841",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=%E3%81%94%E3%81%AF%E3%82%93%E5%B1%8B%20%E6%A3%89%E3%81%AE%E8%8A%B1%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA841"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=%E3%81%9D%E3%81%B0%E5%87%A6%20%E5%96%9C%E5%A4%9A%E7%B8%81%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA989-4",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=%E3%81%9D%E3%81%B0%E5%87%A6%20%E5%96%9C%E5%A4%9A%E7%B8%81%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA989-4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=%E4%BE%86%E9%96%93%E5%B1%8B%E7%94%9F%E5%A7%9C%E7%B3%96%E6%9C%AC%E8%88%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA774",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=%E4%BE%86%E9%96%93%E5%B1%8B%E7%94%9F%E5%A7%9C%E7%B3%96%E6%9C%AC%E8%88%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA774"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=%E5%8A%A0%E8%97%A4%E9%86%A4%E6%B2%B9%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA884",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=%E5%8A%A0%E8%97%A4%E9%86%A4%E6%B2%B9%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA884"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=%E5%90%BE%E9%83%B7%E5%B1%8B%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA721",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=%E5%90%BE%E9%83%B7%E5%B1%8B%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA721"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=%E5%AE%87%E7%BE%8E%E7%A5%9E%E7%A4%BE%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA688-1",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=%E5%AE%87%E7%BE%8E%E7%A5%9E%E7%A4%BE%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA688-1"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=%E5%B2%A1%E8%8C%82%E4%B8%80%E9%83%8E%E5%95%86%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA861",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=%E5%B2%A1%E8%8C%82%E4%B8%80%E9%83%8E%E5%95%86%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA861"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=%E6%8C%81%E7%94%B0%E9%86%A4%E6%B2%B9%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA807",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=%E6%8C%81%E7%94%B0%E9%86%A4%E6%B2%B9%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA807"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=%E6%9C%A8%E7%B6%BF%E8%A1%97%E9%81%93%E4%BA%A4%E6%B5%81%E9%A4%A8%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA841",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=%E6%9C%A8%E7%B6%BF%E8%A1%97%E9%81%93%E4%BA%A4%E6%B5%81%E9%A4%A8%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA841"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=%E6%9C%AC%E7%9F%B3%E6%A9%8B%E9%82%B8%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA834",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=%E6%9C%AC%E7%9F%B3%E6%A9%8B%E9%82%B8%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA834"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=%E7%B5%B5%E3%81%AF%E3%81%8C%E3%81%8D%E5%B1%8B%E3%81%95%E3%82%93%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA820",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=%E7%B5%B5%E3%81%AF%E3%81%8C%E3%81%8D%E5%B1%8B%E3%81%95%E3%82%93%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA820"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=%E9%85%92%E6%8C%81%E7%94%B0%E6%9C%AC%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA785",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=%E9%85%92%E6%8C%81%E7%94%B0%E6%9C%AC%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA785"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=%E9%9B%B2%E5%B7%9E%E5%B9%B3%E7%94%B0%E9%A7%85%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA2226",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=%E9%9B%B2%E5%B7%9E%E5%B9%B3%E7%94%B0%E9%A7%85%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA2226"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=%E9%A2%A8%E9%A2%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%20%E5%B9%B3%E7%94%B0%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA2415-1",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=%E9%A2%A8%E9%A2%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%20%E5%B9%B3%E7%94%B0%E5%BA%97%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA2415-1"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=trattor%C3%ACa%20814%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA814",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/search/?api=1&query=trattor%C3%ACa%20814%20%E5%B3%B6%E6%A0%B9%E7%9C%8C%E5%87%BA%E9%9B%B2%E5%B8%82%E5%B9%B3%E7%94%B0%E7%94%BA814"
+    },
+    {
+      "url": "https://www.hirata-cci.or.jp/wp/wp-content/themes/hiratacci-wptemp/assets/files/top/kuratabi2023.pdf",
+      "status": 200,
+      "finalUrl": "https://www.hirata-cci.or.jp/wp/wp-content/themes/hiratacci-wptemp/assets/files/top/kuratabi2023.pdf"
+    },
+    {
+      "url": "https://www.hotpepper.jp/strJ001158649/yoyaku/hpds/?ROUTE_KBN=20",
+      "status": 200,
+      "finalUrl": "https://www.hotpepper.jp/strJ001158649/yoyaku/hpds/?ROUTE_KBN=20"
+    },
+    {
+      "url": "https://www.instagram.com/naokiagou/",
+      "status": 200,
+      "finalUrl": "https://www.instagram.com/naokiagou/"
+    },
+    {
+      "url": "https://www.instagram.com/sakemochida/",
+      "status": 200,
+      "finalUrl": "https://www.instagram.com/sakemochida/"
+    },
+    {
+      "url": "https://www.instagram.com/trattoria814hachiichiyon/",
+      "status": 200,
+      "finalUrl": "https://www.instagram.com/trattoria814hachiichiyon/"
+    },
+    {
+      "url": "https://www.kankou-shimane.com/pickup/32958.html",
+      "status": 200,
+      "finalUrl": "https://www.kankou-shimane.com/pickup/32958.html"
+    },
+    {
+      "url": "https://www.openstreetmap.org/copyright",
+      "status": 200,
+      "finalUrl": "https://www.openstreetmap.org/copyright"
+    },
+    {
+      "url": "https://www.openstreetmap.org/way/1101646464",
+      "status": 200,
+      "finalUrl": "https://www.openstreetmap.org/way/1101646464"
+    },
+    {
+      "url": "https://www.openstreetmap.org/way/1344741831",
+      "status": 200,
+      "finalUrl": "https://www.openstreetmap.org/way/1344741831"
+    },
+    {
+      "url": "https://www.rita-community.jp/izumo-hirata/meals/",
+      "status": 200,
+      "finalUrl": "https://www.rita-community.jp/izumo-hirata/meals/"
+    },
+    {
+      "url": "https://www.sakemochida.jp/",
+      "status": 200,
+      "finalUrl": "https://www.sakemochida.jp/"
+    }
+  ]
+}
