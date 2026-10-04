@@ -983,3 +983,14 @@ footer {
   font-size: 13px;
   margin-bottom: 20px;
 }
+
+.hero-art {
+  height: 100%;
+  width: 100%;
+  align-self: stretch;
+  aspect-ratio: auto;
+}
+.hero-art img {
+  height: 100%;
+  width: 100%;
+}
